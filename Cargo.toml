@@ -1,0 +1,28 @@
+[package]
+name = "grpc-demo"
+version = "0.1.0"
+edition = "2024"
+
+[[bin]]
+name = "auth"
+path = "src/auth-service/main.rs"
+
+[[bin]]
+name = "health-check"
+path = "src/health-check-service/main.rs"
+
+[[bin]]
+name = "client"
+path = "src/client/main.rs"
+
+[dependencies]
+tonic = "0.9"
+prost = "0.11"
+tokio = { version = "1.27", features = ["macros", "rt-multi-thread", "time"] }
+uuid = { version = "1.2", features = ["v4"] }
+pbkdf2 = { version = "0.12", features = ["simple"] }
+rand_core = { version = "0.6", features = ["std"] }
+clap = { version = "4.2", features = ["derive"] }
+
+[build-dependencies]
+tonic-build = "0.9"
