@@ -46,6 +46,8 @@ enum Commands {
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
+    println!("[!] New run!");
+
     let auth_ip = env::var("AUTH_SERVICE_IP").unwrap_or("[::0]".to_owned());
     let mut client: AuthClient<Channel> = AuthClient::connect(format!("http://{}:50051", auth_ip)).await?;
     let cli = Cli::parse();
